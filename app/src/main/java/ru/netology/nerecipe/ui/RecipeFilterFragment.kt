@@ -21,8 +21,21 @@ class RecipeFilterFragment : Fragment() {
         binding.buttonApply.setOnClickListener {
             onApplyButtonClicked(binding)
         }
+        if (!viewModel.toggleCheckEuropean)
+            binding.checkBoxEuropean.isChecked = false
+        if (!viewModel.toggleCheckAsian)
+            binding.checkBoxAsian.isChecked = false
+        if (!viewModel.toggleCheckPanasian)
+            binding.checkBoxPanasian.isChecked = false
+        if (!viewModel.toggleCheckEastern)
+            binding.checkBoxEastern.isChecked = false
+        if (!viewModel.toggleCheckAmerican)
+            binding.checkBoxAmerican.isChecked = false
+        if (!viewModel.toggleCheckRussian)
+            binding.checkBoxRussian.isChecked = false
+        if (!viewModel.toggleCheckMediterranean)
+            binding.checkBoxMediterranean.isChecked = false
     }.root
-
 
     private fun onApplyButtonClicked(binding: FragmentFilterBinding) {
         var checkedCount = 0
@@ -31,33 +44,31 @@ class RecipeFilterFragment : Fragment() {
         if (!binding.checkBoxEuropean.isChecked) {
             ++checkedCount
             viewModel.showEuropean("European")
-        }
+        } else viewModel.toggleCheckEuropean
         if (!binding.checkBoxAsian.isChecked) {
             ++checkedCount
             viewModel.showAsian("Asian")
-
-        }
+        } else viewModel.toggleCheckAsian
         if (!binding.checkBoxPanasian.isChecked) {
             ++checkedCount
             viewModel.showPanasian("Panasian")
-
-        }
+        } else viewModel.toggleCheckPanasian
         if (!binding.checkBoxEastern.isChecked) {
             ++checkedCount
             viewModel.showEastern("Eastern")
-        }
+        } else viewModel.toggleCheckEastern
         if (!binding.checkBoxAmerican.isChecked) {
             ++checkedCount
             viewModel.showAmerican("American")
-        }
+        } else viewModel.toggleCheckAmerican
         if (!binding.checkBoxRussian.isChecked) {
             ++checkedCount
             viewModel.showRussian("Russian")
-        }
+        } else viewModel.toggleCheckRussian
         if (!binding.checkBoxMediterranean.isChecked) {
             ++checkedCount
             viewModel.showMediterranean( "Mediterranean")
-        }
+        } else viewModel.toggleCheckMediterranean
 
         if (checkedCount == numberOfFilters) {
             Toast.makeText(activity, "You cannot disable all filters", Toast.LENGTH_LONG).show()
