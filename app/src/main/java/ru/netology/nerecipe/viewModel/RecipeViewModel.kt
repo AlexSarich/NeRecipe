@@ -90,38 +90,51 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application),
         singleFragment.call()
     }
 
+    var toggleCheckEuropean = true
     fun showEuropean(categoryRecipe: String) {
         repository.showEuropean(categoryRecipe)
         filterIsActive = true
+        toggleCheckEuropean = false
     }
 
+    var toggleCheckAsian = true
     fun showAsian(categoryRecipe: String) {
         repository.showAsian(categoryRecipe)
         filterIsActive = true
+        toggleCheckAsian = false
     }
 
+    var toggleCheckPanasian = true
     fun showPanasian(categoryRecipe: String) {
         repository.showPanasian(categoryRecipe)
         filterIsActive = true
+        toggleCheckPanasian = false
     }
 
+    var toggleCheckEastern = true
     fun showEastern(categoryRecipe: String) {
         repository.showEastern(categoryRecipe)
         filterIsActive = true
+        toggleCheckEastern = false
     }
-
+    var toggleCheckAmerican = true
     fun showAmerican(categoryRecipe: String) {
         repository.showAmerican(categoryRecipe)
         filterIsActive = true
+        toggleCheckAmerican = false
     }
 
+    var toggleCheckRussian = true
     fun showRussian(categoryRecipe: String) {
         repository.showRussian(categoryRecipe)
         filterIsActive = true
+        toggleCheckRussian = false
     }
 
+    var toggleCheckMediterranean = true
     fun showMediterranean(categoryRecipe: String) {
         repository.showMediterranean(categoryRecipe)
         filterIsActive = true
+        toggleCheckMediterranean = false
     }
 }

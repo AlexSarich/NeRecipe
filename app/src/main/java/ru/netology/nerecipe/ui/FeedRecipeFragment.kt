@@ -64,12 +64,18 @@ class FeedRecipeFragment : Fragment() {
         }
 
         if (viewModel.filterIsActive) {
-
             binding.buttonClearFilter.isVisible = viewModel.filterIsActive
             binding.buttonClearFilter.setOnClickListener {
                 viewModel.clearFilter()
                 viewModel.filterIsActive = false
                 binding.buttonClearFilter.visibility = View.GONE
+                viewModel.toggleCheckEuropean = true
+                viewModel.toggleCheckPanasian = true
+                viewModel.toggleCheckAmerican = true
+                viewModel.toggleCheckEastern = true
+                viewModel.toggleCheckMediterranean = true
+                viewModel.toggleCheckRussian = true
+                viewModel.toggleCheckAsian = true
                 viewModel.data.observe(viewLifecycleOwner) { recipe ->
                     adapter.submitList(recipe)
                 }
